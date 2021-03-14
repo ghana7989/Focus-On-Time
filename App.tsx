@@ -1,21 +1,26 @@
-import { StatusBar } from 'expo-status-bar';
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+/** @format */
+
+import React, { useState } from 'react'
+import { StyleSheet, Text, View } from 'react-native'
+import { Focus } from './src/features/focus/Focus'
+import { colors } from './src/utils/colors'
 
 export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>Open up App.tsx to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
-  );
+	const [focusSubject, setFocusSubject] = useState<string | undefined>(
+		undefined,
+	)
+
+	return (
+		<View style={styles.container}>
+			<Focus addSubject={setFocusSubject} />
+			{focusSubject && <Text>{focusSubject}</Text>}
+		</View>
+	)
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+	container: {
+		backgroundColor: colors.darkBlue,
+		flex: 1,
+	},
+})
