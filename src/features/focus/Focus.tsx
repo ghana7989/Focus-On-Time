@@ -4,7 +4,7 @@ import React, { FC, useRef, useState } from 'react'
 import { StyleSheet, Text, TextInput as rnTextInput, View } from 'react-native'
 import { TextInput } from 'react-native-paper'
 import { RoundedButton } from '../../components/RoundedButton'
-import { fontSizes, spacing } from '../../utils/sizes'
+import { sizes, spacing } from '../../utils/sizes'
 
 interface Props {
 	addSubject: React.Dispatch<React.SetStateAction<string | undefined>>
@@ -27,8 +27,8 @@ const Focus: FC<Props> = ({ addSubject }) => {
 						}}
 					/>
 					<RoundedButton
-						title='+'
-						size={50}
+						title='+A+'
+						size={100}
 						onPress={() => {
 							addSubject(tempItem)
 							textInputRef.current?.clear()
@@ -42,27 +42,28 @@ const Focus: FC<Props> = ({ addSubject }) => {
 
 const styles = StyleSheet.create({
 	container: {
-		flex: 1,
+		height: 400,
+		justifyContent: 'center',
+		alignItems: 'center',
 	},
 	titleContainer: {
-		flex: 0.5,
 		padding: spacing.md,
 		justifyContent: 'center',
 	},
 	title: {
 		color: 'white',
 		fontWeight: 'bold',
-		fontSize: fontSizes.lg,
+		fontSize: sizes.lg,
 		textAlign: 'center',
 	},
 	inputContainer: {
 		paddingTop: spacing.md,
-		flexDirection: 'row',
 		alignItems: 'center',
 	},
 	inputTextField: {
-		flex: 1,
-		marginRight: spacing.md,
+		height: 50,
+		width: 380,
+		marginVertical: 40,
 	},
 })
 export { Focus }
